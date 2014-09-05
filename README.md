@@ -3,12 +3,16 @@ consul-notif
 
 Send email notifications when Consul node checks change state
 
+Why Are You Doing This?
+-----------------------
+Consul (http://www.consul.io/) is a capable health monitor, but it currently lacks a way to send notifications. So consul-notif is a third-party service that consumes the Consul REST API, then figures out if notifications need to be sent.
+
 How Does It Work?
-------------
+-----------------
 The notifier periodically polls a Consul server over HTTP. An in-memory cache is used to store the last state of all node health checks. When a poll detects a health state change, an email is sent via SMTP. The notifier is designed to parse the JSON response of the URI, `v1/internal/ui/nodes?dc=<your center>`.
 
 How Do I Use It?
-------------
+----------------
 
 From the command-line, `cd` into the repository directory and invoke:
 
