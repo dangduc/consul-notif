@@ -1,0 +1,9 @@
+{
+  "sleepDurationMillis": 1000,
+  "consulResourceUrl": "http://demo.consul.io/v1/internal/ui/nodes?dc=dc1",
+  "smtpServer": "smtp.gmail.com",
+  "smtpUser": "consuluser@gmail.com",
+  "smtpPass": "pass456",
+  "notifSenderEmail": "consuluser@gmail.com",
+  "notifRecipientEmail": "joe@gmail.com"
+}

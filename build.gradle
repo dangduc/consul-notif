@@ -1,0 +1,42 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.7
+version = '1.0'
+jar {
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } } // include all dependent libraries in the jar we're building
+    manifest {
+        attributes 'Implementation-Title': 'Consul Notification Service', 'Implementation-Version': version, 'Main-Class': 'com.whoshere.consul.ConsulNotifier'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    compile 'org.apache.commons:commons-io:1.3.2'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.3.1'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.3.1'
+	compile "org.apache.httpcomponents:httpclient:4.3"
+	compile "org.apache.httpcomponents:httpcore:4.3"
+    compile "org.apache.commons:commons-email:1.3.3"
+    
+    compile "org.slf4j:slf4j-api:1.7.5"
+	compile "ch.qos.logback:logback-classic:1.0.13"
+    
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
