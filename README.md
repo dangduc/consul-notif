@@ -5,7 +5,7 @@ Send email notifications when Consul node checks change state
 
 Why Are You Doing This?
 -----------------------
-Consul (http://www.consul.io/) is a capable health monitor, but it currently lacks a way to send notifications. So consul-notif is a third-party service that consumes the Consul REST API, then figures out if notifications need to be sent.
+Consul (http://www.consul.io/) is a capable health monitor, but it currently lacks a way to send notifications. So consul-notif was created as a third-party service that consumes the Consul REST API, then figures out if notifications need to be sent.
 
 How Does It Work?
 -----------------
